@@ -22,9 +22,9 @@ Route::get('professores', function () {
 
 Route::prefix('professores')->group(function ()	{
 	Route::name('professores.')->group(function () {
-		Route::get('{id}', function () {
-			// Retorna o professor com o ID específico
-			// ID deve ser númerico como definido em RouteServiceProvider
+		Route::get('{professor}', function (App\Professor $professor) {
+			// Com model binding
+			// Retorna o professor com base no model
 		})->name('professor');
-	})
+	});
 });

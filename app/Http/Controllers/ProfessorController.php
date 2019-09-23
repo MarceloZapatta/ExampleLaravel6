@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Professor;
 
 class ProfessorController extends Controller
 { 
@@ -44,7 +45,18 @@ class ProfessorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $professor = new Professor();
+
+            if ($request->filled(['nome', 'ativo'])) {
+                // Retriving $request input by Dynamic properties
+                $professor->nome = $request->nome;
+                $professor->ativo = $request->ativo;
+                $professor->save();
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
+        }
     }
 
     /**

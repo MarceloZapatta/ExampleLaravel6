@@ -15,7 +15,7 @@ class ProfessorController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('professor');
+        $this->middleware(['auth', 'professor']);
     }
     /**
      * Display a listing of the resource.

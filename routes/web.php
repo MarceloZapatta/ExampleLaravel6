@@ -39,3 +39,8 @@ Route::resource('professores', 'ProfessorController')->only([
 // 		})->name('professor');
 // 	});
 // });
+Auth::routes();
+// Para deabilitar alguma rota em especial
+// Auth::routes(['register' => false]);.
+
+Route::get('/home', 'HomeController@index')->name('home');

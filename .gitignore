@@ -2,3 +2,4 @@ vendor/
 .env
 .phpintel
 .idea
+node_modules
